@@ -422,7 +422,6 @@
                 </div>
                 <div>
                     <button type="button" class="btn btn-success btn-lg" id="btn-example3-1">Start Spin! (Left to Right)</button>
-                    <button type="button" class="btn btn-success btn-lg" id="btn-example3-2">Start Spin! (Right to Left)</button>
                     <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example3">
                         View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                     </a>
@@ -432,7 +431,7 @@
                         <code>
                             $('#btn-example3').click(function() {<br/>
                             &nbsp;&nbsp;$('#example3 ul').playSpin({<br/>
-                            &nbsp;&nbsp;&nbsp;&nbsp;stopSeq: 'leftToRight', // rightToLeft<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;stopSeq: 'leftToRight'<br/>
                             &nbsp;&nbsp;});<br/>
                             });
                         </code>
@@ -447,131 +446,14 @@
     <script src="js/slotmachine.js"></script>
 
     <script type="text/javascript">
-        $('#btn-example1').click(function() {
-            $('#example1 ul').playSpin();
-        });
-
-        $('#btn-example2').click(function() {
-            var num1 = $('#txt-example2-1').val();
-            var num2 = $('#txt-example2-2').val();
-            var num3 = $('#txt-example2-3').val();
-            $('#example2 ul').playSpin({
-                endNum: [num1, num2, num3],
-            });
-        });
-
         $('#btn-example3-1').click(function() {
             $('#example3 ul').playSpin({
                 stopSeq: 'leftToRight'
             });
         });
-
-        $('#btn-example3-2').click(function() {
-            $('#example3 ul').playSpin({
-                stopSeq: 'rightToLeft'
-            });
-        });
-
-        $('#btn-example4').click(function() {
-            $('#example4 ul').playSpin({
-                easing: 'easeOutBack'
-            });
-        });
-
-        $('#btn-example5').click(function() {
-            var time = $('#txt-example5').val();
-            if (time < 0 || time == '') {
-                time = 0;
-            }
-            $('#example5 ul').playSpin({
-                time: time,
-            });
-        });
-
-        $('#btn-example6').click(function() {
-            $('#example6 ul').playSpin();
-        });
-
-        $('#btn-example7').click(function() {
-            $('#lbl-example7-1').text('');
-            $('#lbl-example7-2').text('');
-            $('#example7 ul').playSpin({
-                onEnd: function(num) {
-                    $('#lbl-example7-1').text($('#lbl-example7-1').text() + num.toString());
-                },
-                onFinish: function(num) {
-                    $('#lbl-example7-2').text(num);
-                }
-            });
-        });
-
-        var sound = new Audio('ringtones/spinning.mp3');
-        var ding = new Audio('ringtones/ding.wav');
-        // Loop of playing sound
-        sound.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        }, false);
-
-        $('#btn-example8').click(function() {
-            sound.play(); // Start play the sound after click button
-            $('#example8 ul').playSpin({
-                time: 2000,
-                endNum: [1, 2, 7],
-                stopSeq: 'rightToLeft',
-                onEnd: function() {
-                    ding.play(); // Play ding after each number is stopped
-                },
-                onFinish: function() {
-                    sound.pause(); // To stop the looping sound is pause it
-                }
-            });
-        });
-
-        $('#btn-example9-start').click(function() {
-            $('#example9 ul').playSpin({
-                manualStop: true
-            });
-        });
-
-        $('#btn-example9-stop').click(function() {
-            $('#example9 ul').stopSpin();
-        });
-
-        var numKeeptrack = 0;
-        $('#btn-example10-start').click(function() {
-            numKeeptrack = 3;
-            $('#example10 #first').playSpin({
-                manualStop: true
-            });
-            $('#example10 #second').playSpin({
-                manualStop: true
-            });
-            $('#example10 #third').playSpin({
-                manualStop: true
-            });
-        });
-
-        $('#btn-example10-stop').click(function() {
-            if (numKeeptrack == 3) {
-                $('#example10 #third').stopSpin();
-            } else if (numKeeptrack == 2) {
-                $('#example10 #second').stopSpin();
-            } else if (numKeeptrack == 1) {
-                $('#example10 #first').stopSpin();
-            }
-            numKeeptrack--;
-        });
-
-        $('#btn-example11-start').click(function() {
-            $('#example11 ul').playSpin({
-                time: $('#txt-example11-time').val(),
-                useStopTime: true,
-                stopTime: $('#txt-example11-stoptime').val(),
-            });
-        });
     </script>
 </body>
 </html>
+
 
 
