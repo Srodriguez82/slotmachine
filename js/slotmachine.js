@@ -64,11 +64,11 @@ var slotMachine = function (el, options, track) {
 
     slot.defaultOptions = {
         easing: 'swing',        // String: easing type for final spin
-        time: 3000,             // Number: total time of spin animation
+        time: 1000,             // Number: total time of spin animation
         loops: 6,               // Number: times it will spin during the animation
         manualStop: false,      // Boolean: spin until user manually click to stop
         useStopTime: false,     // Boolean: use stop time        
-        stopTime: 5000,         // Number: total time of stop aniation
+        stopTime: 2000,         // Number: total time of stop aniation
         stopSeq: 'random',      // String: sequence of slot machine end animation, random, leftToRight, rightToLeft
         endNum: 0,              // Number: animation end at which number/ sequence of list
         onEnd : $.noop,         // Function: run on each element spin end, it is passed endNum
